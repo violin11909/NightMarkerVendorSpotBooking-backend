@@ -178,7 +178,7 @@ const swaggerDocs = swaggerJsDoc({
       description: "REST API for night market vendor spots and bookings.",
     },
     servers: [{
-      url: `http://localhost:${process.env.PORT || 5000}`,
+      url: `${process.env.HOST}:${process.env.PORT || 5000}`,
     }],
     components: {
       securitySchemes: {
@@ -231,7 +231,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-  console.log(`Night Market Vendor Spot Booking API running on http://localhost:${PORT}`);
+  console.log(`Night Market Vendor Spot Booking API running on ${process.env.HOST}:${PORT}`);
 });
 
 process.on("unhandledRejection", (error) => {
